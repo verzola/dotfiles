@@ -2,6 +2,13 @@
 # ~/.bashrc
 #
 
+# Env vars
+export EDITOR='nvim'
+export TERM="xterm-256color"
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -10,5 +17,5 @@ eval "$(starship init bash)"
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Source other files
-[ -f $HOME/.secrets.zsh ] && source $HOME/.secrets.zsh
-[ -f $HOME/.aliases.zsh ] && source $HOME/.aliases.zsh
+[ -f $HOME/.secrets.bash ] && source $HOME/.secrets.bash
+[ -f $HOME/.aliases.bash ] && source $HOME/.aliases.bash
