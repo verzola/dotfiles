@@ -21,7 +21,6 @@ alias o='nautilus .'
 
 # folder navigation
 alias ~='cd ~'
-alias /='cd /'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
