@@ -1,10 +1,10 @@
 alias al='vim ~/projects/verzola/aliases/aliases.conf && source ~/projects/verzola/aliases/aliases.conf'
 
 # edits zshrc
-alias rc='vim ~/.zshrc'
+alias rc='vim ~/.bashrc'
 
 # refreshes current terminal
-alias re='source ~/.zshrc'
+alias re='source ~/.bashrc'
 
 # fast docker-compose
 alias dc='docker-compose'
@@ -14,10 +14,9 @@ alias hosts='sudo vim /etc/hosts'
 
 # vim aliases
 alias vim='nvim'
-alias v='nvim'
 
 # open file explorer
-alias o='nautilus .'
+alias o='nemo .'
 
 # folder navigation
 alias ~='cd ~'
