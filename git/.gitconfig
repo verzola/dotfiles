@@ -1,3 +1,10 @@
 [user]
 	email = verzola@gmail.com
 	name = Gustavo Verzola
+[tag]
+	sort = -version:refname
+[pull]
+	rebase = false
+	default = current
+[push]
+	default = current
