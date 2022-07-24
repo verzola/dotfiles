@@ -5,13 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-
-#PS1='[\u@\h \W]\$ '
-
 eval "$(starship init bash)"
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+alias ls='ls --color=auto'
 
 # edits zshrc
 alias rc='vim ~/.bashrc'
@@ -84,22 +82,3 @@ function conflicts() {
   grep -RinF "<<<<<<" .
   grep -RinF ">>>>>>" .
 }
-
-# update everything I use
-function update() {
-  # apt
-  sudo apt update && sudo apt full-upgrade
-
-  # tmux
-  ~/.tmux/plugins/tpm/bin/update_plugins all
-
-  # zplug
-  if [ -f ${HOME}/.zplug/init.zsh ]; then
-      source ${HOME}/.zplug/init.zsh
-  fi
-  zplug update
-
-  # npm
-  ncu -g
-}
-
