@@ -212,6 +212,7 @@ for_window [class="^.*"] border pixel 1
 
 # Rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
+#bindsym $mod+d exec "dmenu_run -nf '#CDD6F4' -nb '#1E1E2E' -sb '#313244' -sf '##cdd6f4' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
 
 # Nitogen
 exec --no-startup-id nitrogen --restore
