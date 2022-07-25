@@ -179,25 +179,18 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
+# Colorscheme
+client.focused          #181825 #181825 #cdd6f4 #FF0000 #000000
+client.focused_inactive #313244 #313244 #cdd6f4 #FF0000 #000000
+client.unfocused        #313244 #313244 #cdd6f4 #FF0000 #000000
+client.urgent           #cba6f7 #cba6f7 #cdd6f4 #FF0000 #000000
+client.placeholder      #181825 #181825 #cdd6f4 #FF0000 #000000
 
-# class                 border  bground text    indicator child_border
-#client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-#client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-#client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-#client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-#client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #181825
 
-client.focused          #000000 #000000 #FFFFFF #000000   #000000
-client.focused_inactive #111111 #111111 #FFFFFF #000000   #000000
-client.unfocused        #000000 #000000 #FFFFFF #000000   #000000
-client.urgent           #FFFF00 #FFFF00 #000000 #FFFF00   #FFFF00
-client.placeholder      #000000 #000000 #000000 #000000   #000000
-
-client.background       #00000
-
-default_border pixel 1
-default_floating_border pixel 1
-hide_edge_borders smart
+#default_border pixel 1
+#default_floating_border pixel 1
+#hide_edge_borders smart
 #for_window [class="^.*"] border pixel 1
 
 # Default bar configurtion
