@@ -5,3 +5,9 @@ general {
   color_degraded = "#f9e2af"
   color_bad = "#f38ba8"
 }
+
+order += "tztime local"
+
+tztime local {
+  format = "%Y/%m/%d %H:%M:%S"
+}
