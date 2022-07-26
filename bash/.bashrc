@@ -20,5 +20,5 @@ eval "$(starship init bash)"
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Source other files
-[ -f $HOME/.secrets.bash ] && source $HOME/.secrets.bash
-[ -f $HOME/.aliases.bash ] && source $HOME/.aliases.bash
+[ -f ~/.secrets.bash ] && source $HOME/.secrets.bash
+[ -f ~/.aliases.bash ] && source $HOME/.aliases.bash
