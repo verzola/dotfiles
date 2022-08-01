@@ -84,7 +84,20 @@ return packer.startup(function()
   }
 
   -- Colorschemes
-  use 'catppuccin/nvim'
+  use {
+    'catppuccin/nvim',
+    config = function()
+      require("catppuccin").setup{
+        transparent_background = true,
+      }
+
+      vim.g.catppuccin_flavour = "mocha"
+
+      vim.cmd([[
+        colorscheme catppuccin
+      ]])
+    end
+  }
   --use 'dracula/vim'
   --use 'folke/tokyonight.nvim'
   --use 'marko-cerovac/material.nvim'

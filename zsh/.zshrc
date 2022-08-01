@@ -64,5 +64,6 @@ export NVM_DIR="$HOME/.nvm"
 # Source other files
 [ -f $HOME/.secrets.zsh ] && source $HOME/.secrets.zsh
 [ -f $HOME/.aliases.zsh ] && source $HOME/.aliases.zsh
+[ -f $HOME/.aliases.common ] && source $HOME/.aliases.common
 
 eval "$(starship init zsh)"
