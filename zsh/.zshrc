@@ -10,7 +10,6 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
-#zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # Env vars
 export EDITOR='nvim'
@@ -39,22 +38,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load #--verbose
-
-# # Spaceship
-# SPACESHIP_PROMPT_ORDER=(
-#   dir           # Current directory section
-#   git           # Git section (git_branch + git_status)
-#   package       # Package version
-#   exec_time     # Execution time
-#   line_sep      # Line break
-#   vi_mode       # Vi-mode indicator
-#   jobs          # Background jobs indicator
-#   exit_code     # Exit code section
-#   char          # Prompt character
-# )
-
-# SPACESHIP_CHAR_SYMBOL="->"
-#SPACESHIP_CHAR_SUFFIX=" "
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
