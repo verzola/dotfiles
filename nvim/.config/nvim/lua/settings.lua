@@ -63,7 +63,7 @@ set.updatetime = 250
 set.wildmode = {'list', 'longest'}                     -- Command-line completion mode
 set.wrap = false                                       -- Disable line wrap
 set.writebackup = false
-
+set.ch = 0                                             -- Remove default status bar
 
 vim.cmd([[
   set formatoptions+=j
