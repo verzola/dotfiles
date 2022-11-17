@@ -125,6 +125,13 @@ return packer.startup(function()
   }
   use 'neovim/nvim-lspconfig'
   use 'folke/lsp-colors.nvim'
+  use {
+    "williamboman/mason.nvim",
+    config = function()
+      require 'plugins.mason'
+    end
+  }
+  use 'williamboman/mason-lspconfig.nvim'
 
   -- Autocomplete
   use 'hrsh7th/cmp-buffer'
