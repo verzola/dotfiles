@@ -117,13 +117,6 @@ return packer.startup(function()
     end
   }
   use 'mattn/emmet-vim'
-  use {
-    'williamboman/nvim-lsp-installer',
-    config = function()
-      require 'plugins.lsp-installer-config'
-    end
-  }
-  use 'neovim/nvim-lspconfig'
   use 'folke/lsp-colors.nvim'
   use {
     "williamboman/mason.nvim",
@@ -132,6 +125,7 @@ return packer.startup(function()
     end
   }
   use 'williamboman/mason-lspconfig.nvim'
+  use 'neovim/nvim-lspconfig'
 
   -- Autocomplete
   use 'hrsh7th/cmp-buffer'
