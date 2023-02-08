@@ -143,7 +143,6 @@ return packer.startup(function()
   }
 
   -- Formatter & Linter
-  use 'dense-analysis/ale'
   use 'prettier/vim-prettier'
   use 'editorconfig/editorconfig-vim'
   use {
