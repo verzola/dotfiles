@@ -98,12 +98,6 @@ return packer.startup(function()
       ]])
     end
   }
-  --use 'dracula/vim'
-  --use 'folke/tokyonight.nvim'
-  --use 'marko-cerovac/material.nvim'
-  --use 'EdenEast/nightfox.nvim'
-  --use 'rebelot/kanagawa.nvim'
-  --use 'rafi/awesome-vim-colorschemes'
 
   -- Icons
   use 'kyazdani42/nvim-web-devicons'
@@ -137,7 +131,8 @@ return packer.startup(function()
   use 'hrsh7th/vim-vsnip'
   use "rafamadriz/friendly-snippets"
   use {
-    'hrsh7th/nvim-cmp', config = function()
+    'hrsh7th/nvim-cmp',
+    config = function()
       require 'plugins.cmp-config'
     end
   }

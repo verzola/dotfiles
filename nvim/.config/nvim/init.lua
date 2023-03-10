@@ -1,4 +1,5 @@
 --- Verzola's Nvim Config
-require('plugins')
+require('plugins-lazy')
+---require('plugins')
 require('settings')
 require('keymaps')
