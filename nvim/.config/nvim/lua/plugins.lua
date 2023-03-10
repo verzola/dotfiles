@@ -1,90 +1,54 @@
--- Automatically install packer
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
-    'git',
-    'clone',
-    '--depth',
-    '1',
-    'https://github.com/wbthomason/packer.nvim',
-    install_path
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  print("Installing packer close and reopen Neovim...")
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+vim.opt.rtp:prepend(lazypath)
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init({
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end
-    }
-  }
-)
-
--- Plugins
-return packer.startup(function()
-  -- Packer itself
-  use 'wbthomason/packer.nvim'
-
-  -- Better defaults
-  use 'tpope/vim-sensible'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-surround'
-
-  -- Start screen
-  use 'mhinz/vim-startify'
-  --use 'glepnir/dashboard-nvim'
-
-  -- Tabs
-  use {
+require("lazy").setup({
+  {'tpope/vim-sensible'},
+  {'tpope/vim-repeat'},
+  {'tpope/vim-surround'},
+  {'mhinz/vim-startify'},
+  {
     'akinsho/bufferline.nvim',
-      requires = 'kyazdani42/nvim-web-devicons',
-      config = function()
-        require 'plugins.bufferline-config'
-      end
-  }
-
-  -- File tree
-  use {
+    dependencies = {
+      {'kyazdani42/nvim-web-devicons'}
+    },
+    config = function()
+      require 'plugins.bufferline-config'
+    end
+  },
+  {
     'kyazdani42/nvim-tree.lua',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    dependencies = {
+      {'kyazdani42/nvim-web-devicons'}
+    },
     config = function()
       require 'plugins.tree-config'
     end
-  }
-
-  -- Line
-  use { 'nvim-lualine/lualine.nvim',
+  },
+  {
+    'nvim-lualine/lualine.nvim',
     config = function()
       require 'plugins.lualine-config'
     end
-  }
-
-  -- File finder
-  use {
+  },
+  {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
-  -- Colorschemes
-  use {
+    dependencies = {
+      {'nvim-lua/plenary.nvim'}
+    }
+  },
+  {
     'catppuccin/nvim',
     config = function()
       require("catppuccin").setup{
@@ -97,137 +61,95 @@ return packer.startup(function()
         colorscheme catppuccin
       ]])
     end
-  }
-
-  -- Icons
-  use 'kyazdani42/nvim-web-devicons'
-  use 'junegunn/vim-emoji'
-
-  -- Languages/syntax
-  use {
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require 'plugins.treesitter-config'
     end
-  }
-  use 'mattn/emmet-vim'
-  use 'folke/lsp-colors.nvim'
-  use {
-    "williamboman/mason.nvim",
+  },
+  {'mattn/emmet-vim'},
+  {'folke/lsp-colors.nvim'},
+  {
+    'williamboman/mason.nvim',
     config = function()
       require 'plugins.mason'
     end
-  }
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
-
-  -- Autocomplete
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
-  use "rafamadriz/friendly-snippets"
-  use {
+  },
+  {'williamboman/mason-lspconfig.nvim'},
+  {'neovim/nvim-lspconfig'},
+  {'hrsh7th/cmp-buffer'},
+  {'hrsh7th/cmp-path'},
+  {'hrsh7th/cmp-cmdline'},
+  {'hrsh7th/cmp-nvim-lua'},
+  {'hrsh7th/cmp-nvim-lsp'},
+  {'hrsh7th/cmp-vsnip'},
+  {'hrsh7th/vim-vsnip'},
+  {'rafamadriz/friendly-snippets'},
+  {
     'hrsh7th/nvim-cmp',
     config = function()
       require 'plugins.cmp-config'
     end
-  }
-
-  -- Formatter & Linter
-  use 'prettier/vim-prettier'
-  use 'editorconfig/editorconfig-vim'
-  use {
+  },
+  {'prettier/vim-prettier'},
+  {'editorconfig/editorconfig-vim'},
+  {
     'folke/trouble.nvim',
-    requires = "kyazdani42/nvim-web-devicons",
+    dependencies = {
+      {'kyazdani42/nvim-web-devicons'}
+    },
     config = function()
       require 'plugins.trouble-config'
     end
-  }
-
-  -- Git
-  use {
+  },
+  {
     'lewis6991/gitsigns.nvim',
     config = function()
       require 'plugins.gitsigns-config'
     end
-  }
-  use 'tpope/vim-fugitive'
-
-  -- Indentation
-  use {
+  },
+  {'tpope/vim-fugitive'},
+  {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require 'plugins.indent-blankline-config'
     end
-  }
-
-  -- Comments
-  use 'tpope/vim-commentary'
-
-  -- Session
-  use 'tpope/vim-obsession'
-
-  -- Possible commands
-  use {
+  },
+  {'tpope/vim-commentary'},
+  {'tpope/vim-obsession'},
+  {
     'folke/which-key.nvim',
     config = function()
       require 'plugins.which-key-config'
     end
-  }
-
-  -- Notification
-  use {
+  },
+  {
     'rcarriga/nvim-notify',
     config = function()
       require 'plugins.notify-config'
     end
-  }
-
-  -- Show color on colors
-  use 'norcalli/nvim-colorizer.lua'
-
-  -- Tests
-  use 'vim-test/vim-test'
-
-  -- Autopairs
-  use {
-    "windwp/nvim-autopairs",
+  },
+  {'norcalli/nvim-colorizer.lua'},
+  {'vim-test/vim-test'},
+  {
+    'windwp/nvim-autopairs',
     config = function()
       require 'plugins.autopairs-config'
     end
-  }
-
-  use {
+  },
+  {
     'gelguy/wilder.nvim',
     config = function()
       require 'plugins.wilder-config'
     end,
-  }
-
-  -- Terminal
-  use {
-    "akinsho/toggleterm.nvim",
-    tag = 'v2.*',
+  },
+  {
+    'akinsho/toggleterm.nvim',
     config = function()
       require 'plugins.toggleterm-config'
     end
-  }
-  --use 'voldikss/vim-floaterm'
-
-  -- Speed up nvim
-  use 'lewis6991/impatient.nvim'
-
-  -- Rooter
-  use 'airblade/vim-rooter'
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require('packer').sync()
-  end
-end)
-
+  },
+  {'lewis6991/impatient.nvim'},
+  {'airblade/vim-rooter'},
+})

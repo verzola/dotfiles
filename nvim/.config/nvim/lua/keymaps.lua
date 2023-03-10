@@ -44,9 +44,6 @@ keymap('n', '<leader>fb', ':Telescope buffers<cr>', opts)
 keymap('n', '<leader>fh', ':Telescope help_tags<cr>', opts)
 keymap('n', '<leader>ff', ':Telescope<cr>', opts)
 
--- Packer
-keymap('n', '<leader>ps', ':PackerSync <cr>', opts)
-
 -- Neovim Config
 keymap('n', '<leader>sv', ':source $MYVIMRC<cr>', opts)
 keymap('n', '<leader>ev', ':vsplit $MYVIMRC<cr>', opts)
