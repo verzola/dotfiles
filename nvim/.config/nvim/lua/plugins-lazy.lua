@@ -20,13 +20,19 @@ require("lazy").setup({
   {'mhinz/vim-startify'},
   {
     'akinsho/bufferline.nvim',
+    dependencies = {
+      {'kyazdani42/nvim-web-devicons'}
+    },
     config = function()
       require 'plugins.bufferline-config'
     end
   },
-  {'kyazdani42/nvim-web-devicons'},
+  ---{'kyazdani42/nvim-web-devicons'},
   {
     'kyazdani42/nvim-tree.lua',
+    dependencies = {
+      {'kyazdani42/nvim-web-devicons'}
+    },
     config = function()
       require 'plugins.tree-config'
     end
@@ -37,8 +43,13 @@ require("lazy").setup({
       require 'plugins.lualine-config'
     end
   },
-  {'nvim-lua/plenary.nvim'},
-  {'nvim-telescope/telescope.nvim'},
+  ---{'nvim-lua/plenary.nvim'},
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
+      {'nvim-lua/plenary.nvim'}
+    }
+  },
   {
     'catppuccin/nvim',
     config = function()
@@ -87,6 +98,9 @@ require("lazy").setup({
   {'editorconfig/editorconfig-vim'},
   {
     'folke/trouble.nvim',
+    dependencies = {
+      {'kyazdani42/nvim-web-devicons'}
+    },
     config = function()
       require 'plugins.trouble-config'
     end
