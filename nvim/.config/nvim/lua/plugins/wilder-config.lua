@@ -1,6 +1,6 @@
 local wilder = require('wilder')
 
-wilder.setup{
+wilder.setup {
   modes = {
     ':',
     '/',

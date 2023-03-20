@@ -2,9 +2,6 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
--- Fast leave insert mode
-keymap('i', 'jk', '<Esc>', opts)
-
 -- Navigate splits
 keymap('n', '<A-j>', '<c-w>j', opts)
 keymap('n', '<A-h>', '<c-w>h', opts)
@@ -15,8 +12,6 @@ keymap('n', '<A-l>', '<c-w>l', opts)
 keymap('n', '<leader>w', ':w<CR>', opts)
 keymap('n', '<leader>q', ':q!<CR>', opts)
 keymap('n', '<leader>x', ':x<CR>', opts)
-keymap('n', '<c-s>', ':w<CR>', opts)
-keymap('i', '<c-s>', '<Esc>:w<CR>', opts)
 
 -- Remap arrows to scroll
 keymap('n', '<Up>', '<c-y>', opts)
@@ -39,9 +34,6 @@ keymap('n', '<leader>P', '"+P', opts)
 
 -- Telescope
 keymap('n', '<C-p>', ':Telescope find_files<cr>', opts)
-keymap('n', '<leader>fg', ':Telescope live_grep<cr>', opts)
-keymap('n', '<leader>fb', ':Telescope buffers<cr>', opts)
-keymap('n', '<leader>fh', ':Telescope help_tags<cr>', opts)
 keymap('n', '<leader>ff', ':Telescope<cr>', opts)
 
 -- Neovim Config
@@ -57,9 +49,8 @@ keymap('v', '>', '>gv', opts)
 keymap('v', '<', '<gv', opts)
 
 -- Terminal
--- already mapped by terminal plugin
--- keymap('n', '<leader>t', ':split term://zsh<cr>', opts)
--- keymap('n', '<leader>vt', ':vsplit term://zsh<cr>', opts)
+keymap('n', '<leader>t', ':split term://zsh<cr>', opts)
+keymap('n', '<leader>vt', ':vsplit term://zsh<cr>', opts)
 
 -- Disable search highlight
 -- already mapped by sensible plugin

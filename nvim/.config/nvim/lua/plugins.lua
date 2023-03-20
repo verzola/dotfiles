@@ -1,5 +1,5 @@
+-- Initialize lazy package manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -10,9 +10,9 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-
 vim.opt.rtp:prepend(lazypath)
 
+-- Define plugins
 require("lazy").setup({
   {'tpope/vim-sensible'},
   {'tpope/vim-repeat'},

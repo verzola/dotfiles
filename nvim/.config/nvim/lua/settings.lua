@@ -4,6 +4,7 @@ local g = vim.g
 g.mapleader = ','
 g.material_style = "deep ocean"
 
+----------------------------------------------------------
 -- Settings already defined by vim-sensible
 --set.autoindent = true
 --set.backspace = {'indent', 'eol', 'start'}
@@ -23,6 +24,7 @@ g.material_style = "deep ocean"
 --set.tabpagemax = 50
 --set.sessionoptions = set.sessionoptions - {'options'}
 --set.viewoptions = set.viewoptions - {'options'}
+----------------------------------------------------------
 set.pumblend = 30
 set.background = 'dark'
 set.backup = false
