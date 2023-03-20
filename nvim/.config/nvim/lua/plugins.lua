@@ -27,7 +27,7 @@ require("lazy").setup({
       {'kyazdani42/nvim-web-devicons'}
     },
     config = function()
-      require 'plugins.bufferline-config'
+      require 'plugins.bufferline'
     end
   },
   {
@@ -36,13 +36,13 @@ require("lazy").setup({
       {'kyazdani42/nvim-web-devicons'}
     },
     config = function()
-      require 'plugins.tree-config'
+      require 'plugins.tree'
     end
   },
   {
     'nvim-lualine/lualine.nvim',
     config = function()
-      require 'plugins.lualine-config'
+      require 'plugins.lualine'
     end
   },
   {
@@ -68,7 +68,7 @@ require("lazy").setup({
   {
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      require 'plugins.treesitter-config'
+      require 'plugins.treesitter'
     end
   },
   {'mattn/emmet-vim'},
@@ -92,7 +92,7 @@ require("lazy").setup({
   {
     'hrsh7th/nvim-cmp',
     config = function()
-      require 'plugins.cmp-config'
+      require 'plugins.cmp'
     end
   },
   {'prettier/vim-prettier'},
@@ -103,20 +103,20 @@ require("lazy").setup({
       {'kyazdani42/nvim-web-devicons'}
     },
     config = function()
-      require 'plugins.trouble-config'
+      require 'plugins.trouble'
     end
   },
   {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require 'plugins.gitsigns-config'
+      require 'plugins.gitsigns'
     end
   },
   {'tpope/vim-fugitive'},
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
-      require 'plugins.indent-blankline-config'
+      require 'plugins.indent-blankline'
     end
   },
   {'tpope/vim-commentary'},
@@ -124,13 +124,13 @@ require("lazy").setup({
   {
     'folke/which-key.nvim',
     config = function()
-      require 'plugins.which-key-config'
+      require 'plugins.which-key'
     end
   },
   {
     'rcarriga/nvim-notify',
     config = function()
-      require 'plugins.notify-config'
+      require 'plugins.notify'
     end
   },
   {'norcalli/nvim-colorizer.lua'},
@@ -138,19 +138,19 @@ require("lazy").setup({
   {
     'windwp/nvim-autopairs',
     config = function()
-      require 'plugins.autopairs-config'
+      require 'plugins.autopairs'
     end
   },
   {
     'gelguy/wilder.nvim',
     config = function()
-      require 'plugins.wilder-config'
+      require 'plugins.wilder'
     end,
   },
   {
     'akinsho/toggleterm.nvim',
     config = function()
-      require 'plugins.toggleterm-config'
+      require 'plugins.toggleterm'
     end
   },
   {'lewis6991/impatient.nvim'},
