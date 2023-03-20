@@ -56,3 +56,7 @@ keymap('v', '<tab>', '%', opts)
 
 -- Sort
 keymap('v', '<leader>s', ":'<,'>sort<CR>", opts)
+
+-- Trouble
+
+keymap('n', '<leader>t', ':TroubleToggle<cr>', opts)
