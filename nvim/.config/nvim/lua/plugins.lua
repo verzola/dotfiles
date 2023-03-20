@@ -73,6 +73,7 @@ require("lazy").setup({
   },
   {'mattn/emmet-vim'},
   {'folke/lsp-colors.nvim'},
+  ----------------------------------------------  LSP
   {
     'williamboman/mason.nvim',
     config = function()
@@ -81,6 +82,7 @@ require("lazy").setup({
   },
   {'williamboman/mason-lspconfig.nvim'},
   {'neovim/nvim-lspconfig'},
+  ---------------------------------------------- CMP
   {'hrsh7th/cmp-buffer'},
   {'hrsh7th/cmp-path'},
   {'hrsh7th/cmp-cmdline'},
