@@ -50,10 +50,6 @@ keymap('n', '<leader>nf', ':NvimTreeFindFile<cr>', opts)
 keymap('v', '>', '>gv', opts)
 keymap('v', '<', '<gv', opts)
 
--- Disable search highlight
--- already mapped by sensible plugin
---keymap('n', '<C-l>', ':noh<CR>', opts)
-
 -- Tab go to pair
 keymap('n', '<tab>', '%', opts)
 keymap('v', '<tab>', '%', opts)
