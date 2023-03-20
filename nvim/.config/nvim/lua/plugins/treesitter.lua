@@ -1,17 +1,19 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   highlight = { enable = true },
   incremental_selection = { enable = true },
   indent = { enable = true },
   rainbow = { enable = true },
   ensure_installed = {
     'bash',
-    'html',
     'css',
+    'html',
     'javascript',
     'json',
-    'php',
     'lua',
+    'luadoc',
+    'php',
+    'scss',
     'yaml',
-    'dockerfile'
+    --'dockerfile',
   }
 }
