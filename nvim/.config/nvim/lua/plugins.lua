@@ -157,4 +157,10 @@ require("lazy").setup({
   },
   {'lewis6991/impatient.nvim'},
   {'airblade/vim-rooter'},
+  {
+    'mhartington/formatter.nvim',
+    config = function()
+      require 'plugins.formatter'
+    end
+  },
 })
