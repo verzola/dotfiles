@@ -58,5 +58,7 @@ keymap('v', '<tab>', '%', opts)
 keymap('v', '<leader>s', ":'<,'>sort<CR>", opts)
 
 -- Trouble
-
 keymap('n', '<leader>t', ':TroubleToggle<cr>', opts)
+
+-- Lazy
+keymap('n', '<leader>l', ':Lazy<cr>', opts)
