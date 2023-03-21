@@ -61,4 +61,4 @@ keymap('v', '<leader>s', ":'<,'>sort<CR>", opts)
 keymap('n', '<leader>t', ':TroubleToggle<cr>', opts)
 
 -- Lazy
-keymap('n', '<leader>lz', ':Lazy<cr>', opts)
+keymap('n', '<leader>z', ':Lazy<cr>', opts)
