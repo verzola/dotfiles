@@ -82,7 +82,7 @@ require("lazy").setup({
         transparent = true,
       }
       vim.cmd([[
-        colorscheme tokyonight-moon
+        colorscheme tokyonight-night
       ]])
     end
   },
