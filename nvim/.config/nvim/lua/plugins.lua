@@ -17,10 +17,16 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Define plugins
 require("lazy").setup({
+  ------------------------------------- Essentials
   {'tpope/vim-sensible'},
   {'tpope/vim-repeat'},
   {'tpope/vim-surround'},
+  {'tpope/vim-commentary'},
+  {'tpope/vim-obsession'},
   {'mhinz/vim-startify'},
+  {'lewis6991/impatient.nvim'},
+  {'airblade/vim-rooter'},
+  ------------------------------------- Tab-like buffers
   {
     'akinsho/bufferline.nvim',
     dependencies = {
@@ -30,6 +36,7 @@ require("lazy").setup({
       require 'plugins.bufferline'
     end
   },
+  ------------------------------------- File-explorer
   {
     'kyazdani42/nvim-tree.lua',
     dependencies = {
@@ -39,29 +46,43 @@ require("lazy").setup({
       require 'plugins.tree'
     end
   },
+  ------------------------------------- Statusline
   {
     'nvim-lualine/lualine.nvim',
     config = function()
       require 'plugins.lualine'
     end
   },
+  ------------------------------------- Finder
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       {'nvim-lua/plenary.nvim'}
     }
   },
+  ------------------------------------- Themes
+  -- {
+  --   'catppuccin/nvim',
+  --   config = function()
+  --     require("catppuccin").setup{
+  --       transparent_background = true,
+  --     }
+
+  --     vim.g.catppuccin_flavour = "mocha"
+
+  --     vim.cmd([[
+  --       colorscheme catppuccin
+  --     ]])
+  --   end
+  -- },
   {
-    'catppuccin/nvim',
+    'folke/tokyonight.nvim',
     config = function()
-      require("catppuccin").setup{
-        transparent_background = true,
+      require("tokyonight").setup{
+        transparent = true,
       }
-
-      vim.g.catppuccin_flavour = "mocha"
-
       vim.cmd([[
-        colorscheme catppuccin
+        colorscheme tokyonight-night
       ]])
     end
   },
@@ -71,8 +92,6 @@ require("lazy").setup({
       require 'plugins.treesitter'
     end
   },
-  {'mattn/emmet-vim'},
-  {'folke/lsp-colors.nvim'},
   ----------------------------------------------  LSP
   {
     'williamboman/mason.nvim',
@@ -82,6 +101,7 @@ require("lazy").setup({
   },
   {'williamboman/mason-lspconfig.nvim'},
   {'neovim/nvim-lspconfig'},
+  {'folke/lsp-colors.nvim'},
   ---------------------------------------------- CMP
   {'hrsh7th/cmp-buffer'},
   {'hrsh7th/cmp-path'},
@@ -97,8 +117,15 @@ require("lazy").setup({
       require 'plugins.cmp'
     end
   },
+  ---------------------------------------------- Formatters
   {'prettier/vim-prettier'},
   {'editorconfig/editorconfig-vim'},
+  {
+    'mhartington/formatter.nvim',
+    config = function()
+      require 'plugins.formatter'
+    end
+  },
   {
     'folke/trouble.nvim',
     dependencies = {
@@ -108,6 +135,7 @@ require("lazy").setup({
       require 'plugins.trouble'
     end
   },
+  ---------------------------------------------- Git
   {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -121,14 +149,14 @@ require("lazy").setup({
       require 'plugins.indent-blankline'
     end
   },
-  {'tpope/vim-commentary'},
-  {'tpope/vim-obsession'},
+  ---------------------------------------------- Key finder
   {
     'folke/which-key.nvim',
     config = function()
       require 'plugins.which-key'
     end
   },
+  ---------------------------------------------- Notifications
   {
     'rcarriga/nvim-notify',
     config = function()
@@ -136,31 +164,27 @@ require("lazy").setup({
     end
   },
   {'norcalli/nvim-colorizer.lua'},
-  {'vim-test/vim-test'},
+  ---------------------------------------------- Auto-pairs
   {
     'windwp/nvim-autopairs',
     config = function()
       require 'plugins.autopairs'
     end
   },
+  ---------------------------------------------- Completion
   {
     'gelguy/wilder.nvim',
     config = function()
       require 'plugins.wilder'
     end,
   },
+  ---------------------------------------------- Terminal
   {
     'akinsho/toggleterm.nvim',
     config = function()
       require 'plugins.toggleterm'
     end
   },
-  {'lewis6991/impatient.nvim'},
-  {'airblade/vim-rooter'},
-  {
-    'mhartington/formatter.nvim',
-    config = function()
-      require 'plugins.formatter'
-    end
-  },
+  --{'vim-test/vim-test'},
+  --{'mattn/emmet-vim'},
 })
