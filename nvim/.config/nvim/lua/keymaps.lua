@@ -44,7 +44,7 @@ keymap('n', '<leader>sv', ':source $MYVIMRC<cr>', opts)
 keymap('n', '<leader>ev', ':vsplit $MYVIMRC<cr>', opts)
 
 -- nvim-tree
-keymap('n', '<c-e>', ':NvimTreeToggle<cr>', opts)
+keymap('n', '<c-e>', ':NvimTreeFocus<cr>', opts)
 keymap('n', '<leader>nf', ':NvimTreeFindFileToggle<cr>', opts)
 
 -- Easy indent
