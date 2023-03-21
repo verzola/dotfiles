@@ -4,6 +4,7 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+
 -- Navigate splits
 keymap('n', '<A-j>', '<c-w>j', opts)
 keymap('n', '<A-h>', '<c-w>h', opts)
@@ -44,7 +45,7 @@ keymap('n', '<leader>ev', ':vsplit $MYVIMRC<cr>', opts)
 
 -- nvim-tree
 keymap('n', '<c-e>', ':NvimTreeToggle<cr>', opts)
-keymap('n', '<leader>nf', ':NvimTreeFindFile<cr>', opts)
+keymap('n', '<leader>nf', ':NvimTreeFindFileToggle<cr>', opts)
 
 -- Easy indent
 keymap('v', '>', '>gv', opts)
