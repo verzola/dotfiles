@@ -3,6 +3,7 @@ require('nvim-treesitter.configs').setup {
   incremental_selection = { enable = true },
   indent = { enable = true },
   rainbow = { enable = true },
+  autotag = { enable = true },
   ensure_installed = {
     'bash',
     'css',

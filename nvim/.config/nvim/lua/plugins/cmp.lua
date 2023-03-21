@@ -1,4 +1,5 @@
 local cmp = require('cmp')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 cmp.setup({
   experimental = {
@@ -112,3 +113,8 @@ require'lspconfig'.yamlls.setup{
   capabilities = capabilities
 }
 
+-- If you want insert `(` after select function or method item
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)

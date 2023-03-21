@@ -171,6 +171,9 @@ require("lazy").setup({
       require 'plugins.autopairs'
     end
   },
+  {
+    'windwp/nvim-ts-autotag',
+  },
   ---------------------------------------------- Completion
   {
     'gelguy/wilder.nvim',
