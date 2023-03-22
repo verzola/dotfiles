@@ -36,7 +36,7 @@ keymap('n', '<leader>p', '"+p', opts)
 keymap('n', '<leader>P', '"+P', opts)
 
 -- Telescope
-keymap('n', '<C-p>', ':Telescope find_files<cr>', opts)
+keymap('n', '<C-p>', ':Telescope find_files hidden=true<cr>', opts)
 keymap('n', '<leader>ff', ':Telescope<cr>', opts)
 
 
