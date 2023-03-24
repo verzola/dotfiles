@@ -61,20 +61,20 @@ require("lazy").setup({
     }
   },
   ------------------------------------- Themes
-  -- {
-  --   'catppuccin/nvim',
-  --   config = function()
-  --     require("catppuccin").setup{
-  --       transparent_background = true,
-  --     }
+  {
+    'catppuccin/nvim',
+    config = function()
+      require("catppuccin").setup{
+        transparent_background = true,
+      }
 
-  --     vim.g.catppuccin_flavour = "mocha"
+      vim.g.catppuccin_flavour = "mocha"
 
-  --     vim.cmd([[
-  --       colorscheme catppuccin
-  --     ]])
-  --   end
-  -- },
+      vim.cmd([[
+        "colorscheme catppuccin
+      ]])
+    end
+  },
   {
     'folke/tokyonight.nvim',
     config = function()
