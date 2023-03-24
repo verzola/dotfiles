@@ -95,11 +95,13 @@ require("lazy").setup({
   ----------------------------------------------  LSP
   {
     'williamboman/mason.nvim',
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
     config = function()
       require 'plugins.mason'
     end
   },
-  {'williamboman/mason-lspconfig.nvim'},
   {'neovim/nvim-lspconfig'},
   {'folke/lsp-colors.nvim'},
   ---------------------------------------------- CMP
