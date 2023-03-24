@@ -4,7 +4,6 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-
 -- Navigate splits
 keymap('n', '<A-j>', '<c-w>j', opts)
 keymap('n', '<A-h>', '<c-w>h', opts)
