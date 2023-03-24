@@ -1,11 +1,10 @@
 require('bufferline').setup {
   options = {
-    diagnostics = "nvim_lsp"
-    --separator_style = 'slant',
-    -- hover = {
-    --   enabled = true,
-    --   delay = 200,
-    --   reveal = {'close'}
-    -- },
+    diagnostics = "nvim_lsp",
+    numbers = "buffer_id",
+    indicator = {
+      icon = '',
+      style = 'underline',
+    }
   }
 }
