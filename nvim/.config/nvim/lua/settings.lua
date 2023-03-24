@@ -69,9 +69,8 @@ set.wildmode = {'list', 'longest'}                -- Completion mode that is use
 set.wrap = false                                  -- This option changes how text is displayed.
 set.writebackup = false                           -- Make a backup before overwriting a file.
 set.cmdheight = 0                                 -- Number of screen lines to use for the command-line.
-set.undodir = '~/.vim-undo'
 
 vim.cmd([[
   set formatoptions+=j
-  "set undodir=~/.vim-undo
+  set undodir=~/.vim-undo
 ]])
