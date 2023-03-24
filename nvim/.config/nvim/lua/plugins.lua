@@ -188,6 +188,12 @@ require("lazy").setup({
       require 'plugins.toggleterm'
     end
   },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      require 'plugins.null-ls'
+    end
+  },
   --{'vim-test/vim-test'},
   --{'mattn/emmet-vim'},
 })
