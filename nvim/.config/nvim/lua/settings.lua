@@ -4,8 +4,7 @@
 local set = vim.opt
 local g = vim.g
 
-g.mapleader = ','
-g.material_style = "deep ocean"
+g.mapleader = ',' -- Change leader key
 
 ----------------------------------------------------------
 -- Settings already defined by vim-sensible
@@ -28,6 +27,7 @@ g.material_style = "deep ocean"
 --set.sessionoptions = set.sessionoptions - {'options'}
 --set.viewoptions = set.viewoptions - {'options'}
 ----------------------------------------------------------
+
 set.pumblend = 30                                 -- Enables pseudo-transparency for the popup-menu.
 set.background = 'dark'                           -- 
 set.backup = false                                -- Make a backup before overwriting a file.
@@ -69,8 +69,9 @@ set.wildmode = {'list', 'longest'}                -- Completion mode that is use
 set.wrap = false                                  -- This option changes how text is displayed.
 set.writebackup = false                           -- Make a backup before overwriting a file.
 set.cmdheight = 0                                 -- Number of screen lines to use for the command-line.
+set.undodir = '~/.vim-undo'
 
 vim.cmd([[
   set formatoptions+=j
-  set undodir=~/.vim-undo
+  "set undodir=~/.vim-undo
 ]])
