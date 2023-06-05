@@ -7,7 +7,7 @@ null_ls.setup({
     null_ls.builtins.completion.spell,
     null_ls.builtins.diagnostics.editorconfig_checker,
     null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.diagnostics.jshint,
+    --null_ls.builtins.diagnostics.jshint,
     null_ls.builtins.diagnostics.jsonlint,
     null_ls.builtins.diagnostics.luacheck,
     null_ls.builtins.diagnostics.php,
