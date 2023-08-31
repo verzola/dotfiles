@@ -18,7 +18,7 @@ export TERM="xterm-256color"
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$HOME/bin/neovim/usr/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # History related
 HISTFILE=~/.zsh_history
@@ -47,7 +47,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Source other files
-[ -f $HOME/.secrets.zsh ] && source $HOME/.secrets.zsh
+[ -f $HOME/.secrets ] && source $HOME/.secrets
 [ -f $HOME/.aliases.zsh ] && source $HOME/.aliases.zsh
 [ -f $HOME/.aliases.common ] && source $HOME/.aliases.common
 

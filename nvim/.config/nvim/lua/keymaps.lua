@@ -37,7 +37,7 @@ keymap('n', '<leader>P', '"+P', opts)
 -- Telescope
 keymap('n', '<C-p>', ':Telescope find_files hidden=true<cr>', opts)
 keymap('n', '<leader>ff', ':Telescope<cr>', opts)
-
+keymap('n', '<leader>fg', ':Telescope live_grep<cr>', opts)
 
 -- Neovim Config
 keymap('n', '<leader>sv', ':source $MYVIMRC<cr>', opts)
