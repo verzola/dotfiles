@@ -104,7 +104,6 @@ require("lazy").setup({
     end
   },
   {'neovim/nvim-lspconfig'},
-  {'folke/lsp-colors.nvim'},
   ---------------------------------------------- CMP
   {'hrsh7th/cmp-buffer'},
   {'hrsh7th/cmp-path'},
