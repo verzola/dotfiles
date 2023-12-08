@@ -222,7 +222,10 @@ require("lazy").setup({
       -- configurations go here
     },
   },
-  ---------------------------------------------- Noice
+  {'ms-jpq/coq_nvim'},
+  {'ms-jpq/coq.artifact'},
+  {'ms-jpq/coq.thirdparty'},
+  ---------------------------------------------- Unused
   -- {
   --   "folke/noice.nvim",
   --   event = "VeryLazy",
@@ -241,6 +244,5 @@ require("lazy").setup({
   --     require 'plugins.noice'
   --   end,
   -- },
-  ---------------------------------------------- Unused
   --{'vim-test/vim-test'},
 })
