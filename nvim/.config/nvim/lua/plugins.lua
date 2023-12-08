@@ -86,6 +86,7 @@ require("lazy").setup({
       ]])
     end
   },
+  ---------------------------------------------- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
     config = function()
