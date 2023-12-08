@@ -200,7 +200,10 @@ require("lazy").setup({
   ---------------------------------------------- Emmet
   {'mattn/emmet-vim'},
   ---------------------------------------------- Twig
-  {'nelsyeung/twig.vim'}
+  {'nelsyeung/twig.vim'},
+  ---------------------------------------------- Fzf
+  { "junegunn/fzf", dir = "~/.fzf", build = "./install --all" },
+  {'junegunn/fzf.vim'},
   ---------------------------------------------- Unused
   --{'vim-test/vim-test'},
 })
