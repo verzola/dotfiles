@@ -222,9 +222,10 @@ require("lazy").setup({
       -- configurations go here
     },
   },
-  {'ms-jpq/coq_nvim'},
-  {'ms-jpq/coq.artifact'},
-  {'ms-jpq/coq.thirdparty'},
+  ---------------------------------------------- Coq
+  -- {'ms-jpq/coq_nvim'},
+  -- {'ms-jpq/coq.artifact'},
+  -- {'ms-jpq/coq.thirdparty'},
   ---------------------------------------------- Unused
   -- {
   --   "folke/noice.nvim",
