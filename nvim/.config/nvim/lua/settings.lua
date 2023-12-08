@@ -26,7 +26,6 @@ g.mapleader = ',' -- Change leader key
 --set.sessionoptions = set.sessionoptions - {'options'}
 --set.viewoptions = set.viewoptions - {'options'}
 ----------------------------------------------------------
-
 set.pumblend = 30                                 -- Enables pseudo-transparency for the popup-menu.
 set.background = 'dark'                           -- 
 set.backup = false                                -- Make a backup before overwriting a file.
@@ -69,7 +68,5 @@ set.wrap = false                                  -- This option changes how tex
 set.writebackup = false                           -- Make a backup before overwriting a file.
 set.cmdheight = 0                                 -- Number of screen lines to use for the command-line.
 
-vim.cmd([[
-  set formatoptions+=j
-  set undodir=~/.vim-undo
-]])
+vim.opt.undodir = vim.fn.expand('~/.vim-undo')
+vim.opt.formatoptions:append("j")
