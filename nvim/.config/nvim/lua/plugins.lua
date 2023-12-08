@@ -146,6 +146,7 @@ require("lazy").setup({
     end
   },
   {'tpope/vim-fugitive'},
+  ---------------------------------------------- Show spaces
   {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
@@ -166,7 +167,12 @@ require("lazy").setup({
       require 'plugins.notify'
     end
   },
-  {'norcalli/nvim-colorizer.lua'},
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('plugins.colorizer')
+    end
+  },
   ---------------------------------------------- Auto-pairs
   {
     'windwp/nvim-autopairs',
