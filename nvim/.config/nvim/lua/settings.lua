@@ -5,7 +5,6 @@ local set = vim.opt
 local g = vim.g
 
 g.mapleader = ',' -- Change leader key
-
 ----------------------------------------------------------
 -- Settings already defined by vim-sensible
 --set.autoindent = true
