@@ -66,3 +66,6 @@ keymap("n", "<leader>z", ":Lazy<cr>", opts)
 
 -- Mason
 keymap("n", "<leader>m", ":Mason<cr>", opts)
+
+-- Format
+keymap("n", "<leader>f", ":Format<cr>", opts)

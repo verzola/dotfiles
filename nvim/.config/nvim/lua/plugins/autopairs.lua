@@ -1,4 +1,3 @@
-require('nvim-autopairs').setup {
-   fast_wrap = {},
-}
-
+require("nvim-autopairs").setup({
+	fast_wrap = {},
+})
