@@ -61,12 +61,6 @@ require("lazy").setup({
     }
   },
   ------------------------------------- Themes
-  -- {
-  --   'catppuccin/nvim',
-  --   config = function()
-  --     require 'plugins.catppuccin'
-  --   end
-  -- },
   {
     'folke/tokyonight.nvim',
     lazy = false,
@@ -223,31 +217,6 @@ require("lazy").setup({
       -- configurations go here
     },
   },
-  ---------------------------------------------- Coq
-  -- {'ms-jpq/coq_nvim'},
-  -- {'ms-jpq/coq.artifact'},
-  -- {'ms-jpq/coq.thirdparty'},
-  ---------------------------------------------- Unused
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "VeryLazy",
-  --   opts = {
-  --     -- add any options here
-  --   },
-  --   dependencies = {
-  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-  --     "MunifTanjim/nui.nvim",
-  --     -- OPTIONAL:
-  --     --   `nvim-notify` is only needed, if you want to use the notification view.
-  --     --   If not available, we use `mini` as the fallback
-  --     "rcarriga/nvim-notify",
-  --   },
-  --   config = function()
-  --     require 'plugins.noice'
-  --   end,
-  -- },
-  --{'vim-test/vim-test'},
-  --{'mattn/emmet-vim'},
   ---------------------------------------------- Tabnine
   {
     'codota/tabnine-nvim',
