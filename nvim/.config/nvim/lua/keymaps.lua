@@ -63,3 +63,6 @@ keymap('n', '<leader>t', ':TroubleToggle<cr>', opts)
 
 -- Lazy
 keymap('n', '<leader>z', ':Lazy<cr>', opts)
+
+-- Mason
+keymap('n', '<leader>m', ':Mason<cr>', opts)

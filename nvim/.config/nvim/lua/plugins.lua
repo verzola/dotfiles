@@ -30,7 +30,7 @@ require("lazy").setup({
   {
     'akinsho/bufferline.nvim',
     dependencies = {
-      {'kyazdani42/nvim-web-devicons'}
+      {'nvim-tree/nvim-web-devicons'}
     },
     config = function()
       require 'plugins.bufferline'
@@ -40,7 +40,7 @@ require("lazy").setup({
   {
     'kyazdani42/nvim-tree.lua',
     dependencies = {
-      {'kyazdani42/nvim-web-devicons'}
+      {'nvim-tree/nvim-web-devicons'}
     },
     config = function()
       require 'plugins.tree'
@@ -69,6 +69,9 @@ require("lazy").setup({
   -- },
   {
     'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
     config = function()
       require("tokyonight").setup{
         style = "night",
@@ -79,6 +82,7 @@ require("lazy").setup({
       ]])
     end
   },
+  ---------------------------------------------- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
     config = function()
@@ -103,7 +107,6 @@ require("lazy").setup({
       end,
   },
   {'neovim/nvim-lspconfig'},
-  {'folke/lsp-colors.nvim'},
   ---------------------------------------------- CMP
   {'hrsh7th/cmp-buffer'},
   {'hrsh7th/cmp-path'},
@@ -131,7 +134,7 @@ require("lazy").setup({
   {
     'folke/trouble.nvim',
     dependencies = {
-      {'kyazdani42/nvim-web-devicons'}
+      {'nvim-tree/nvim-web-devicons'}
     },
     config = function()
       require 'plugins.trouble'
@@ -145,6 +148,7 @@ require("lazy").setup({
     end
   },
   {'tpope/vim-fugitive'},
+  ---------------------------------------------- Show spaces
   {
     'lukas-reineke/indent-blankline.nvim',
     main = "ibl",
@@ -166,7 +170,12 @@ require("lazy").setup({
       require 'plugins.notify'
     end
   },
-  {'norcalli/nvim-colorizer.lua'},
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('plugins.colorizer')
+    end
+  },
   ---------------------------------------------- Auto-pairs
   {
     'windwp/nvim-autopairs',
@@ -191,12 +200,52 @@ require("lazy").setup({
       require 'plugins.toggleterm'
     end
   },
+  ---------------------------------------------- Emmet
+  {'mattn/emmet-vim'},
+  ---------------------------------------------- Twig
+  {'nelsyeung/twig.vim'},
+  ---------------------------------------------- Fzf
+  { "junegunn/fzf", dir = "~/.fzf", build = "./install --all" },
+  {'junegunn/fzf.vim'},
+  ---------------------------------------------- Barbecue
   {
-    'jose-elias-alvarez/null-ls.nvim',
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
     config = function()
-      require 'plugins.null-ls'
-    end
+      require 'plugins.barbecue'
+    end,
+    opts = {
+      -- configurations go here
+    },
   },
+  ---------------------------------------------- Coq
+  -- {'ms-jpq/coq_nvim'},
+  -- {'ms-jpq/coq.artifact'},
+  -- {'ms-jpq/coq.thirdparty'},
+  ---------------------------------------------- Unused
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     -- add any options here
+  --   },
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     "MunifTanjim/nui.nvim",
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     "rcarriga/nvim-notify",
+  --   },
+  --   config = function()
+  --     require 'plugins.noice'
+  --   end,
+  -- },
   --{'vim-test/vim-test'},
   --{'mattn/emmet-vim'},
   ---------------------------------------------- Tabnine

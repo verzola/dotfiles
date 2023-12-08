@@ -13,6 +13,11 @@ require("mason-lspconfig").setup {
     'intelephense',
     'tailwindcss',
     'yamlls',
+    'dockerls',
+    'docker_compose_language_service',
+    'sqlls',
+    'lemminx',
+    'yamlls',
   },
   automatic_installation = true,
 }
