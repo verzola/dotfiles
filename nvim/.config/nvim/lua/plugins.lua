@@ -61,24 +61,17 @@ require("lazy").setup({
     }
   },
   ------------------------------------- Themes
-  {
-    'catppuccin/nvim',
-    config = function()
-      require("catppuccin").setup{
-        transparent_background = true,
-      }
-
-      vim.g.catppuccin_flavour = "mocha"
-
-      vim.cmd([[
-        "colorscheme catppuccin
-      ]])
-    end
-  },
+  -- {
+  --   'catppuccin/nvim',
+  --   config = function()
+  --     require 'plugins.catppuccin'
+  --   end
+  -- },
   {
     'folke/tokyonight.nvim',
     config = function()
       require("tokyonight").setup{
+        style = "night",
         transparent = true,
       }
       vim.cmd([[
@@ -90,7 +83,8 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require 'plugins.treesitter'
-    end
+    end,
+    build = ":TSUpdate"
   },
   ----------------------------------------------  LSP
   {
@@ -101,6 +95,12 @@ require("lazy").setup({
     config = function()
       require 'plugins.mason'
     end
+  },
+  {
+      'nvimdev/lspsaga.nvim',
+      config = function()
+          require('lspsaga').setup({})
+      end,
   },
   {'neovim/nvim-lspconfig'},
   {'folke/lsp-colors.nvim'},
@@ -147,6 +147,7 @@ require("lazy").setup({
   {'tpope/vim-fugitive'},
   {
     'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
     config = function()
       require 'plugins.indent-blankline'
     end
@@ -198,4 +199,12 @@ require("lazy").setup({
   },
   --{'vim-test/vim-test'},
   --{'mattn/emmet-vim'},
+  ---------------------------------------------- Tabnine
+  {
+    'codota/tabnine-nvim',
+    build = "./dl_binaries.sh",
+    config = function()
+      require 'plugins.tabnine'
+    end
+  },
 })

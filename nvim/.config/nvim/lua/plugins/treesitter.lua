@@ -4,6 +4,7 @@ require('nvim-treesitter.configs').setup {
   indent = { enable = true },
   rainbow = { enable = true },
   autotag = { enable = true },
+  auto_install = true,
   ensure_installed = {
     'bash',
     'css',
