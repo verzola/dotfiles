@@ -30,7 +30,7 @@ require("lazy").setup({
   {
     'akinsho/bufferline.nvim',
     dependencies = {
-      {'kyazdani42/nvim-web-devicons'}
+      {'nvim-tree/nvim-web-devicons'}
     },
     config = function()
       require 'plugins.bufferline'
@@ -40,7 +40,7 @@ require("lazy").setup({
   {
     'kyazdani42/nvim-tree.lua',
     dependencies = {
-      {'kyazdani42/nvim-web-devicons'}
+      {'nvim-tree/nvim-web-devicons'}
     },
     config = function()
       require 'plugins.tree'
