@@ -217,12 +217,4 @@ require("lazy").setup({
 			-- configurations go here
 		},
 	},
-	---------------------------------------------- Tabnine
-	{
-		"codota/tabnine-nvim",
-		build = "./dl_binaries.sh",
-		config = function()
-			require("plugins.tabnine")
-		end,
-	},
 })
