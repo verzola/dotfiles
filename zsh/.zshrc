@@ -5,7 +5,7 @@ fi
 
 source $HOME/.zplug/init.zsh
 
-zplug "plugins/z", from:oh-my-zsh
+zplug "rupa/z", use:z.sh
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
