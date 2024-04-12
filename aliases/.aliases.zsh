@@ -6,3 +6,6 @@ alias rc='vim ~/.zshrc'
 
 # refreshes current terminal
 alias re='source ~/.zshrc'
+
+# terraform
+alias tf='terraform'

@@ -222,6 +222,18 @@ require("lazy").setup({
       -- configurations go here
     },
   },
+  ---------------------------------------------- Mini
+  {
+    'echasnovski/mini.nvim',
+    version = '*',
+    config = function()
+      require 'plugins.mini'
+    end
+  },
+  {
+    'Exafunction/codeium.vim',
+    event = 'BufEnter'
+  },
   ---------------------------------------------- Coq
   -- {'ms-jpq/coq_nvim'},
   -- {'ms-jpq/coq.artifact'},
