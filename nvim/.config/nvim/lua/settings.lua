@@ -5,7 +5,6 @@ local set = vim.opt
 local g = vim.g
 
 g.mapleader = ',' -- Change leader key
-
 ----------------------------------------------------------
 -- Settings already defined by vim-sensible
 --set.autoindent = true
@@ -27,13 +26,12 @@ g.mapleader = ',' -- Change leader key
 --set.sessionoptions = set.sessionoptions - {'options'}
 --set.viewoptions = set.viewoptions - {'options'}
 ----------------------------------------------------------
-
 set.pumblend = 30                                 -- Enables pseudo-transparency for the popup-menu.
 set.background = 'dark'                           -- 
 set.backup = false                                -- Make a backup before overwriting a file.
 set.clipboard = 'unnamedplus'                     -- 
 set.compatible = false                            -- This option has the effect of making Vim either more Vi-compatible, or make Vim behave in a more useful way.
-set.completeopt = {'menu', 'menuone', 'noselect'} -- Completion options (for deoplete).
+set.completeopt = {'menu', 'menuone', 'noselect'} -- Completion options
 set.confirm = true                                -- When 'confirm' is on, certain operations that would normally fail because of unsaved changes to a buffer.
 set.cursorline = true                             -- Highlight the text line of the cursor with CursorLine.
 set.expandtab = true                              -- Use spaces instead of tabs.
@@ -70,7 +68,5 @@ set.wrap = false                                  -- This option changes how tex
 set.writebackup = false                           -- Make a backup before overwriting a file.
 set.cmdheight = 0                                 -- Number of screen lines to use for the command-line.
 
-vim.cmd([[
-  set formatoptions+=j
-  set undodir=~/.vim-undo
-]])
+vim.opt.undodir = vim.fn.expand('~/.vim-undo')
+vim.opt.formatoptions:append("j")
