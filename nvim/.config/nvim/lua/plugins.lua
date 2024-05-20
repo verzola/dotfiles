@@ -220,5 +220,10 @@ require("lazy").setup({
 	---------------------------------------------- AI
   {
     "github/copilot.vim"
-  }
+  },
+	---------------------------------------------- Codeium
+  -- {
+  --   'Exafunction/codeium.vim',
+  --   event = 'BufEnter'
+  -- }
 })
