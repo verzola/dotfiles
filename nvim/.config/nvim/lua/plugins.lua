@@ -94,12 +94,12 @@ require("lazy").setup({
 			require("plugins.mason")
 		end,
 	},
-	{
-		"nvimdev/lspsaga.nvim",
-		config = function()
-			require("lspsaga").setup({})
-		end,
-	},
+	-- {
+	-- 	"nvimdev/lspsaga.nvim",
+	-- 	config = function()
+	-- 		require("lspsaga").setup({})
+	-- 	end,
+	-- },
 	{ "neovim/nvim-lspconfig" },
 	---------------------------------------------- CMP
 	{ "hrsh7th/cmp-buffer" },
@@ -107,8 +107,8 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-cmdline" },
 	{ "hrsh7th/cmp-nvim-lua" },
 	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-vsnip" },
-	{ "hrsh7th/vim-vsnip" },
+	--{ "hrsh7th/cmp-vsnip" },
+	--{ "hrsh7th/vim-vsnip" },
 	{ "rafamadriz/friendly-snippets" },
 	{
 		"hrsh7th/nvim-cmp",
@@ -217,12 +217,8 @@ require("lazy").setup({
 			-- configurations go here
 		},
 	},
-	---------------------------------------------- Tabnine
-	{
-		"codota/tabnine-nvim",
-		build = "./dl_binaries.sh",
-		config = function()
-			require("plugins.tabnine")
-		end,
-	},
+	---------------------------------------------- AI
+  {
+    "github/copilot.vim"
+  }
 })

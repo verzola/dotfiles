@@ -6,3 +6,7 @@ alias rc='vim ~/.zshrc'
 
 # refreshes current terminal
 alias re='source ~/.zshrc'
+
+alias tf='terraform'
+
+alias snyktest='snyk test --all-projects --json | npx snyk-to-html -o snyk.html'

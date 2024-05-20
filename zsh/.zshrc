@@ -19,6 +19,7 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # History related
 HISTFILE=~/.zsh_history

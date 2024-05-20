@@ -69,3 +69,6 @@ keymap("n", "<leader>m", ":Mason<cr>", opts)
 
 -- Format
 keymap("n", "<leader>f", ":Format<cr>", opts)
+
+-- Copilot
+keymap("n", "<leader>cc", ":Copilot<cr>", opts)
