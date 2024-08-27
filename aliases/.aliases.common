@@ -6,6 +6,7 @@ alias hosts='sudo vim /etc/hosts'
 
 # vim aliases
 alias vim='nvim'
+alias v='nvim'
 
 # open file explorer
 alias o='nemo .'
@@ -34,6 +35,7 @@ alias tinypng='tinypng -k	$TINYPNG_KEY'
 
 # git aliases
 alias ga='git add'
+alias gamend='git commit --amend --no-edit'
 alias gap='git add -p'
 alias gb='git branch'
 alias gc='git commit'
@@ -48,12 +50,14 @@ alias gp='git push'
 alias gpl='git pull'
 alias gr='git restore'
 alias grs='git restore --staged'
+alias grb='git rebase -i'
 alias gst='git status'
 alias gt='git tag'
 alias gs='git switch'
 alias gsc='git switch -c'
 alias gft='git fetch --tags'
 alias glt='git describe --abbrev=0 --tags'
+alias gundo='git reset --soft HEAD^'
 
 # search string
 function search() {

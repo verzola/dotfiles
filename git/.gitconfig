@@ -8,3 +8,36 @@
 	default = current
 [push]
 	default = current
+[alias]
+  # General shortcuts
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  lg = log --oneline --graph --decorate --all
+
+  # Add all changes and commit with a message
+  amend = commit --amend --no-edit
+
+  # Show detailed log
+  l = log --pretty=format:'%C(yellow)%h%C(reset) - %C(cyan)%ad%C(reset) - %C(bold blue)%an%C(reset) - %C(green)%s%C(reset)' --date=short
+
+  # Show the last few commits
+  last = log -1 HEAD
+
+  # Interactive rebase
+  rb = rebase -i
+
+  # Shortcuts for fetching and pulling
+  fp = "!f() { git fetch origin && git pull origin $(git rev-parse --abbrev-ref HEAD); }; f"
+
+  # Show branches sorted by most recent commit
+  recent-branches = "!git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+
+  # Clean up merged branches
+  cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d"
+
+  # Push to the same branch on the remote
+  push = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+
+  undo = reset --hard HEAD^

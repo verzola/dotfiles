@@ -68,7 +68,7 @@ keymap("n", "<leader>z", ":Lazy<cr>", opts)
 keymap("n", "<leader>m", ":Mason<cr>", opts)
 
 -- Format
-keymap("n", "<leader>f", ":Format<cr>", opts)
+keymap("n", "<leader>f", ":Prettier<cr>", opts)
 
 -- Copilot
 keymap("n", "<leader>cc", ":Copilot<cr>", opts)
