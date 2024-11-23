@@ -70,3 +70,4 @@ set.cmdheight = 0                                 -- Number of screen lines to u
 
 vim.opt.undodir = vim.fn.expand('~/.vim-undo')
 vim.opt.formatoptions:append("j")
+vim.api.nvim_set_option("clipboard","unnamed")

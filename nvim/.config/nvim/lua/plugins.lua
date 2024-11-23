@@ -29,10 +29,11 @@ require("lazy").setup({
 	{ "tpope/vim-obsession" },
 	{ "mhinz/vim-startify" },
 	{ "lewis6991/impatient.nvim" },
-	{ "airblade/vim-rooter" },
+	--{ "airblade/vim-rooter" },
 	------------------------------------- Tab-like buffers
 	{
 		"akinsho/bufferline.nvim",
+    version = "*",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 		},
@@ -53,6 +54,9 @@ require("lazy").setup({
 	------------------------------------- Statusline
 	{
 		"nvim-lualine/lualine.nvim",
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    },
 		config = function()
 			require("plugins.lualine")
 		end,
@@ -111,8 +115,8 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-cmdline" },
 	{ "hrsh7th/cmp-nvim-lua" },
 	{ "hrsh7th/cmp-nvim-lsp" },
-	--{ "hrsh7th/cmp-vsnip" },
-	--{ "hrsh7th/vim-vsnip" },
+	{ "hrsh7th/cmp-vsnip" },
+	{ "hrsh7th/vim-vsnip" },
 	{ "rafamadriz/friendly-snippets" },
 	{
 		"hrsh7th/nvim-cmp",
@@ -131,12 +135,45 @@ require("lazy").setup({
 	},
 	{
 		"folke/trouble.nvim",
+    cmd = "Trouble",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 		},
 		config = function()
 			require("plugins.trouble")
 		end,
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
 	},
 	---------------------------------------------- Git
 	{
@@ -153,10 +190,21 @@ require("lazy").setup({
 		config = function()
 			require("plugins.indent-blankline")
 		end,
+    opts = {},
 	},
 	---------------------------------------------- Key finder
 	{
 		"folke/which-key.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
 		config = function()
 			require("plugins.which-key")
 		end,
@@ -177,9 +225,9 @@ require("lazy").setup({
 	---------------------------------------------- Auto-pairs
 	{
 		"windwp/nvim-autopairs",
-		config = function()
-			require("plugins.autopairs")
-		end,
+    event = "InsertEnter",
+		config = true,
+    opts = {}
 	},
 	{
 		"windwp/nvim-ts-autotag",

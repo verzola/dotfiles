@@ -59,7 +59,7 @@ keymap("v", "<tab>", "%", opts)
 keymap("v", "<leader>s", ":'<,'>sort<CR>", opts)
 
 -- Trouble
-keymap("n", "<leader>t", ":TroubleToggle<cr>", opts)
+keymap("n", "<leader>t", ":Trouble<cr>", opts)
 
 -- Lazy
 keymap("n", "<leader>z", ":Lazy<cr>", opts)
@@ -71,4 +71,4 @@ keymap("n", "<leader>m", ":Mason<cr>", opts)
 keymap("n", "<leader>f", ":Prettier<cr>", opts)
 
 -- Copilot
-keymap("n", "<leader>cc", ":Copilot<cr>", opts)
+keymap("n", "<leader>co", ":Copilot<cr>", opts)
