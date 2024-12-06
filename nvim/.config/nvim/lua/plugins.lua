@@ -29,7 +29,7 @@ require("lazy").setup({
 	{ "tpope/vim-obsession" },
 	{ "mhinz/vim-startify" },
 	{ "lewis6991/impatient.nvim" },
-	--{ "airblade/vim-rooter" },
+	{ "airblade/vim-rooter" },
 	------------------------------------- Tab-like buffers
 	{
 		"akinsho/bufferline.nvim",
