@@ -248,8 +248,6 @@ require("lazy").setup({
 	},
 	---------------------------------------------- Emmet
 	{ "mattn/emmet-vim" },
-	---------------------------------------------- Twig
-	{ "nelsyeung/twig.vim" },
 	---------------------------------------------- Fzf
 	{ "junegunn/fzf", dir = "~/.fzf", build = "./install --all" },
 	{ "junegunn/fzf.vim" },
@@ -273,9 +271,4 @@ require("lazy").setup({
   {
     "github/copilot.vim"
   },
-	---------------------------------------------- Codeium
-  -- {
-  --   'Exafunction/codeium.vim',
-  --   event = 'BufEnter'
-  -- }
 })

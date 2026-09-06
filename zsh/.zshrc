@@ -53,3 +53,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -f $HOME/.aliases.common ] && source $HOME/.aliases.common
 
 eval "$(starship init zsh)"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/verzola/.local/bin:$PATH"

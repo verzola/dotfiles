@@ -41,3 +41,9 @@
   push = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 
   undo = reset --hard HEAD^
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
+[core]
+	editor = nvim
