@@ -5,7 +5,6 @@
 	sort = -version:refname
 [pull]
 	rebase = false
-	default = current
 [push]
 	default = current
 [alias]
@@ -35,12 +34,9 @@
   recent-branches = "!git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 
   # Clean up merged branches
-  cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d"
+  cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master' | xargs -r -n 1 git branch -d"
 
-  # Push to the same branch on the remote
-  push = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
-
-  undo = reset --soft HEAD^
+  undo = reset --soft HEAD~1
 [init]
 	defaultBranch = main
 [rerere]

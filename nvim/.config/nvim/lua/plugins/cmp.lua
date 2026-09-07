@@ -1,6 +1,15 @@
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 local select_opts = { behavior = cmp.SelectBehavior.Select }
+local menu_icon = {
+    nvim_lsp = "λ",
+    luasnip = "⋗",
+    vsnip = "⋗",
+    nvim_lua = "Π",
+    buffer = "Ω",
+    path = "🖫",
+    cmdline = "",
+}
 
 cmp.setup({
 	experimental = {
@@ -23,6 +32,7 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		-- duplicate menu_icon removed
 	}),
 	sources = cmp.config.sources({
 		{ name = "path" },
@@ -34,14 +44,7 @@ cmp.setup({
 	formatting = {
 		fields = { "menu", "abbr", "kind" },
 		format = function(entry, item)
-			local menu_icon = {
-				nvim_lsp = "λ",
-				luasnip = "⋗",
-				buffer = "Ω",
-				path = "🖫",
-			}
-
-			item.menu = menu_icon[entry.source.name]
+			item.menu = menu_icon[entry.source.name] or string.format("[%s]", entry.source.name)
 			return item
 		end,
 	},

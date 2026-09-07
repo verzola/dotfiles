@@ -1,8 +1,8 @@
 # fast Docker Compose
 alias dc='docker compose'
 
-# edit hosts file with sudo
-alias hosts='sudo vim /etc/hosts'
+# edit hosts file securely
+alias hosts='sudoedit /etc/hosts'
 
 # editor aliases
 alias vim='nvim'
@@ -19,12 +19,12 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 alias .......='cd ../../../../../..'
-alias ........='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
 
 # node aliases
 alias dev='npm run dev'
 alias build='npm run build'
-alias install='npm install'
+alias npmi='npm install'
 alias npmtest='npm test'
 
 # own all files recursively
@@ -57,17 +57,23 @@ alias gs='git switch'
 alias gsc='git switch -c'
 alias gft='git fetch --tags'
 alias glt='git describe --abbrev=0 --tags'
-alias gundo='git reset --soft HEAD^'
+alias gundo='git reset --soft HEAD~1'
 
 # search string
 function search() {
   [[ -n "$1" ]] || { echo "usage: search <text>" >&2; return 2; }
-  grep -RinF -- "$1" .
+  if command -v rg >/dev/null 2>&1; then
+    rg -n -- "$1" .
+  else
+    grep -RinF -- "$1" .
+  fi
 }
 
 # search conflicts
 function conflicts() {
-  grep -RinF -- "======" .
-  grep -RinF -- "<<<<<<" .
-  grep -RinF -- ">>>>>>" .
+  if command -v rg >/dev/null 2>&1; then
+    rg '^(<{7}|={7}|>{7})' .
+  else
+    grep -RinE '^([<]{7}|[=]{7}|[>]{7})' .
+  fi
 }

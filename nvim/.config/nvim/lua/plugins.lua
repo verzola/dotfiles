@@ -20,17 +20,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Define plugins
 require("lazy").setup({
-  checker = { enabled = false, notify = false },
-  rocks = { enabled = false },
 	------------------------------------- Essentials
-	{ "tpope/vim-sensible" },
 	{ "tpope/vim-repeat" },
 	{ "tpope/vim-surround" },
+	{ "tpope/vim-sensible" },
 	{ "tpope/vim-commentary" },
 	------------------------------------- Tab-like buffers
 	{
 		"akinsho/bufferline.nvim",
-    version = "*",
+		version = "*",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 		},
@@ -57,9 +55,9 @@ require("lazy").setup({
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
-    dependencies = {
-      'nvim-tree/nvim-web-devicons'
-    },
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
 		config = function()
 			require("plugins.lualine")
 		end,
@@ -91,10 +89,11 @@ require("lazy").setup({
 	---------------------------------------------- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		build = ":TSUpdate",
 		config = function()
 			require("plugins.treesitter")
 		end,
-		build = ":TSUpdate",
 	},
 	----------------------------------------------  LSP
 	{
@@ -111,16 +110,27 @@ require("lazy").setup({
 			"williamboman/mason.nvim",
 			"neovim/nvim-lspconfig",
 		},
-		config = function()
-			require("plugins.mason")
+		opts = {
+			ensure_installed = {
+				"lua_ls",
+				"ts_ls",
+				"eslint",
+				"html",
+				"cssls",
+				"jsonls",
+				"yamlls",
+				"emmet_ls",
+				"tailwindcss",
+				"bashls",
+				"dockerls",
+				"docker_compose_language_service",
+			},
+			automatic_enable = true,
+		},
+		config = function(_, opts)
+			require("plugins.mason").setup(opts)
 		end,
 	},
-	-- {
-	-- 	"nvimdev/lspsaga.nvim",
-	-- 	config = function()
-	-- 		require("lspsaga").setup({})
-	-- 	end,
-	-- },
 	{ "neovim/nvim-lspconfig", lazy = true },
 	---------------------------------------------- CMP
 	{ "hrsh7th/cmp-buffer", event = "InsertEnter" },
@@ -155,48 +165,47 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{ "editorconfig/editorconfig-vim" },
 	{
 		"folke/trouble.nvim",
-    cmd = "Trouble",
+		cmd = "Trouble",
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 		},
 		config = function()
 			require("plugins.trouble")
 		end,
-    keys = {
-      {
-        "<leader>xx",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>xX",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>cs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>cl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>xL",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>xQ",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
-    },
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>cs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
 	},
 	---------------------------------------------- Git
 	{
@@ -215,21 +224,21 @@ require("lazy").setup({
 		config = function()
 			require("plugins.indent-blankline")
 		end,
-    opts = {},
+		opts = {},
 	},
 	---------------------------------------------- Key finder
 	{
 		"folke/which-key.nvim",
-    event = "VeryLazy",
-    keys = {
-      {
-        "<leader>?",
-        function()
-          require("which-key").show({ global = false })
-        end,
-        desc = "Buffer Local Keymaps (which-key)",
-      },
-    },
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 		config = function()
 			require("plugins.which-key")
 		end,
@@ -252,9 +261,10 @@ require("lazy").setup({
 	---------------------------------------------- Auto-pairs
 	{
 		"windwp/nvim-autopairs",
-    event = "InsertEnter",
-		config = true,
-    opts = {}
+		event = "InsertEnter",
+		config = function()
+			require("plugins.autopairs")
+		end,
 	},
 	---------------------------------------------- Completion
 	---------------------------------------------- Terminal
@@ -279,18 +289,20 @@ require("lazy").setup({
 		event = "LspAttach",
 		dependencies = {
 			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
 			require("plugins.barbecue")
 		end,
-		opts = {
-			-- configurations go here
-		},
+		opts = {},
 	},
 	---------------------------------------------- AI
-  {
+	{
 		"github/copilot.vim",
+		cmd = "Copilot",
 		event = "InsertEnter",
-  },
+	},
+}, {
+	checker = { enabled = false, notify = false },
+	rocks = { enabled = false },
 })
