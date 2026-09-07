@@ -8,33 +8,36 @@ if [[ -r "$HOME/.zplug/init.zsh" ]]; then
   zplug "zsh-users/zsh-syntax-highlighting"
   zplug "zsh-users/zsh-history-substring-search"
   zplug "MichaelAquilina/zsh-you-should-use"
+
+  if ! zplug check --verbose; then
+    printf "Install zsh plugins? [y/N]: "
+    if read -q; then
+      echo
+      zplug install
+    fi
+  fi
+
+  zplug load
 fi
 
 # Env vars
 export EDITOR='nvim'
 export TERM="${TERM:-xterm-256color}"
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:$HOME/go/bin:$PATH"
+typeset -U path
 
 # History related
 HISTFILE=~/.zsh_history
 HISTSIZE=999999
 SAVEHIST=999999
 setopt SHARE_HISTORY
-setopt appendhistory
-setopt extended_glob
+setopt APPEND_HISTORY
+setopt EXTENDED_GLOB
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
 
 # FZF
-[ -f ~/.fzf.zsh ] && source $HOME/.fzf.zsh
-
-# ZPLUG
-if [[ -r "$HOME/.zplug/init.zsh" ]] && ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-[[ -r "$HOME/.zplug/init.zsh" ]] && zplug load
+[ -f ~/.fzf.zsh ] && source "$HOME/.fzf.zsh"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

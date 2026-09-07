@@ -14,6 +14,7 @@ keymap("n", "<A-l>", "<c-w>l", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q!<CR>", opts)
 keymap("n", "<leader>x", ":x<CR>", opts)
+keymap("n", "<leader>wq", ":x<CR>", opts)
 
 -- Remap arrows to scroll
 keymap("n", "<Up>", "<c-y>", opts)
@@ -68,7 +69,7 @@ keymap("n", "<leader>z", ":Lazy<cr>", opts)
 keymap("n", "<leader>m", ":Mason<cr>", opts)
 
 -- Format
-keymap("n", "<leader>f", ":Prettier<cr>", opts)
+keymap("n", "<leader>fmt", ":Prettier<cr>", opts)
 
 -- Copilot
 keymap("n", "<leader>co", ":Copilot<cr>", opts)

@@ -3,7 +3,7 @@ SHELL := /bin/sh
 PACKAGES := aliases bash btop git kitty nvim starship xresources zsh
 STOW := stow
 
-.PHONY: all check help delete setup-arch setup-ubuntu
+.PHONY: all check help delete setup
 
 all: check
 	$(STOW) --verbose --target="$(HOME)" --restow $(PACKAGES)
@@ -16,7 +16,7 @@ help:
 		'make              Install or refresh all dotfile links' \
 		'make check        Verify required tools are available' \
 		'make delete       Remove links created by Stow' \
-		'make setup-ubuntu Install GNU Stow on Ubuntu/Debian'
+		'make setup        Install GNU Stow on Ubuntu/Debian'
 
 delete:
 	$(STOW) --verbose --target="$(HOME)" --delete $(PACKAGES)

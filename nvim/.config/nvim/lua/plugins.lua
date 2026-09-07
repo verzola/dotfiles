@@ -20,14 +20,13 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Define plugins
 require("lazy").setup({
-  checker = { enabled = true },
+  checker = { enabled = false, notify = false },
+  rocks = { enabled = false },
 	------------------------------------- Essentials
 	{ "tpope/vim-sensible" },
 	{ "tpope/vim-repeat" },
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-commentary" },
-	{ "mhinz/vim-startify" },
-	{ "airblade/vim-rooter" },
 	------------------------------------- Tab-like buffers
 	{
 		"akinsho/bufferline.nvim",

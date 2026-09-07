@@ -6,9 +6,18 @@
 export EDITOR='nvim'
 export TERM="${TERM:-xterm-256color}"
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:$PATH"
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
 
+# History config
 HISTSIZE=999999
 HISTFILESIZE=999999
+shopt -s histappend
+
+# Shell behavior
+set -o vi
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
