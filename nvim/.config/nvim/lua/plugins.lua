@@ -26,9 +26,7 @@ require("lazy").setup({
 	{ "tpope/vim-repeat" },
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-commentary" },
-	{ "tpope/vim-obsession" },
 	{ "mhinz/vim-startify" },
-	{ "lewis6991/impatient.nvim" },
 	{ "airblade/vim-rooter" },
 	------------------------------------- Tab-like buffers
 	{
@@ -43,7 +41,12 @@ require("lazy").setup({
 	},
 	------------------------------------- File-explorer
 	{
-		"kyazdani42/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua",
+		cmd = {
+			"NvimTreeFocus",
+			"NvimTreeFindFileToggle",
+			"NvimTreeToggle",
+		},
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
 		},
@@ -54,6 +57,7 @@ require("lazy").setup({
 	------------------------------------- Statusline
 	{
 		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     },
@@ -64,6 +68,7 @@ require("lazy").setup({
 	------------------------------------- Finder
 	{
 		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 		},
@@ -95,9 +100,18 @@ require("lazy").setup({
 	----------------------------------------------  LSP
 	{
 		"williamboman/mason.nvim",
+		cmd = "Mason",
+		config = function()
+			require("mason").setup({})
+		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"neovim/nvim-lspconfig",
+		},
 		config = function()
 			require("plugins.mason")
 		end,
@@ -108,31 +122,41 @@ require("lazy").setup({
 	-- 		require("lspsaga").setup({})
 	-- 	end,
 	-- },
-	{ "neovim/nvim-lspconfig" },
+	{ "neovim/nvim-lspconfig", lazy = true },
 	---------------------------------------------- CMP
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-cmdline" },
-	{ "hrsh7th/cmp-nvim-lua" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-vsnip" },
-	{ "hrsh7th/vim-vsnip" },
-	{ "rafamadriz/friendly-snippets" },
+	{ "hrsh7th/cmp-buffer", event = "InsertEnter" },
+	{ "hrsh7th/cmp-path", event = { "InsertEnter", "CmdlineEnter" } },
+	{ "hrsh7th/cmp-cmdline", event = "CmdlineEnter" },
+	{ "hrsh7th/cmp-nvim-lua", event = "InsertEnter" },
+	{ "hrsh7th/cmp-nvim-lsp", event = "InsertEnter" },
+	{ "hrsh7th/cmp-vsnip", event = "InsertEnter" },
+	{ "hrsh7th/vim-vsnip", event = "InsertEnter" },
+	{ "rafamadriz/friendly-snippets", event = "InsertEnter" },
 	{
 		"hrsh7th/nvim-cmp",
+		event = { "InsertEnter", "CmdlineEnter" },
 		config = function()
 			require("plugins.cmp")
 		end,
 	},
 	---------------------------------------------- Formatters
-	{ "prettier/vim-prettier" },
-	{ "editorconfig/editorconfig-vim" },
 	{
-		"mhartington/formatter.nvim",
+		"prettier/vim-prettier",
+		build = "yarn install --frozen-lockfile --production",
+		event = { "BufReadPre", "BufNewFile" },
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html", "css", "json" },
 		config = function()
-			require("plugins.formatter")
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.html", "*.css", "*.json" },
+				callback = function(args)
+					if vim.bo[args.buf].modifiable then
+						vim.cmd("silent Prettier")
+					end
+				end,
+			})
 		end,
 	},
+	{ "editorconfig/editorconfig-vim" },
 	{
 		"folke/trouble.nvim",
     cmd = "Trouble",
@@ -178,6 +202,7 @@ require("lazy").setup({
 	---------------------------------------------- Git
 	{
 		"lewis6991/gitsigns.nvim",
+		event = "BufReadPre",
 		config = function()
 			require("plugins.gitsigns")
 		end,
@@ -187,6 +212,7 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("plugins.indent-blankline")
 		end,
@@ -212,12 +238,14 @@ require("lazy").setup({
 	---------------------------------------------- Notifications
 	{
 		"rcarriga/nvim-notify",
+		event = "VeryLazy",
 		config = function()
 			require("plugins.notify")
 		end,
 	},
 	{
-		"norcalli/nvim-colorizer.lua",
+		"catgoose/nvim-colorizer.lua",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("plugins.colorizer")
 		end,
@@ -229,33 +257,27 @@ require("lazy").setup({
 		config = true,
     opts = {}
 	},
-	{
-		"windwp/nvim-ts-autotag",
-	},
 	---------------------------------------------- Completion
-	{
-		"gelguy/wilder.nvim",
-		config = function()
-			require("plugins.wilder")
-		end,
-	},
 	---------------------------------------------- Terminal
 	{
 		"akinsho/toggleterm.nvim",
+		keys = { "<C-t>" },
 		config = function()
 			require("plugins.toggleterm")
 		end,
 	},
 	---------------------------------------------- Emmet
-	{ "mattn/emmet-vim" },
-	---------------------------------------------- Fzf
-	{ "junegunn/fzf", dir = "~/.fzf", build = "./install --all" },
-	{ "junegunn/fzf.vim" },
+	{
+		"mattn/emmet-vim",
+		event = "InsertEnter",
+		ft = { "html", "css", "javascriptreact", "typescriptreact" },
+	},
 	---------------------------------------------- Barbecue
 	{
 		"utilyre/barbecue.nvim",
 		name = "barbecue",
 		version = "*",
+		event = "LspAttach",
 		dependencies = {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons", -- optional dependency
@@ -269,6 +291,7 @@ require("lazy").setup({
 	},
 	---------------------------------------------- AI
   {
-    "github/copilot.vim"
+		"github/copilot.vim",
+		event = "InsertEnter",
   },
 })

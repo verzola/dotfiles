@@ -1,8 +1,8 @@
 -------------------------------------------------
 -------------------- Keymaps --------------------
 -------------------------------------------------
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+local keymap = vim.keymap.set
+local opts = { silent = true }
 
 -- Navigate splits
 keymap("n", "<A-j>", "<c-w>j", opts)

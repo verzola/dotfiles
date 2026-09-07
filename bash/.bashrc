@@ -4,11 +4,8 @@
 
 # Env vars
 export EDITOR='nvim'
-export TERM="xterm-256color"
-export PATH=$PATH:$HOME/.config/composer/vendor/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/bin
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export TERM="${TERM:-xterm-256color}"
+export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:$PATH"
 
 HISTSIZE=999999
 HISTFILESIZE=999999
@@ -16,7 +13,7 @@ HISTFILESIZE=999999
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-eval "$(starship init bash)"
+command -v starship >/dev/null && eval "$(starship init bash)"
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
@@ -26,13 +23,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Source other files
-[ -f ~/.secrets.bash ] && source $HOME/.secrets.bash
-[ -f ~/.aliases.common ] && source $HOME/.aliases.common
-[ -f ~/.aliases.bash ] && source $HOME/.aliases.bash
+[ -r "$HOME/.secrets.bash" ] && source "$HOME/.secrets.bash"
+[ -r "$HOME/.aliases.common" ] && source "$HOME/.aliases.common"
+[ -r "$HOME/.aliases.bash" ] && source "$HOME/.aliases.bash"
 
 # FZF
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 
 # Added by Antigravity CLI installer
 export PATH="/home/verzola/.local/bin:$PATH"

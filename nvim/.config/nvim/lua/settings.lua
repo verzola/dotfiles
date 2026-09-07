@@ -29,7 +29,7 @@ g.mapleader = ',' -- Change leader key
 set.pumblend = 30                                 -- Enables pseudo-transparency for the popup-menu.
 set.background = 'dark'                           -- 
 set.backup = false                                -- Make a backup before overwriting a file.
-set.clipboard = 'unnamedplus'                     -- 
+set.clipboard = 'unnamedplus'                     -- Use the system clipboard.
 set.compatible = false                            -- This option has the effect of making Vim either more Vi-compatible, or make Vim behave in a more useful way.
 set.completeopt = {'menu', 'menuone', 'noselect'} -- Completion options
 set.confirm = true                                -- When 'confirm' is on, certain operations that would normally fail because of unsaved changes to a buffer.
@@ -68,6 +68,7 @@ set.wrap = false                                  -- This option changes how tex
 set.writebackup = false                           -- Make a backup before overwriting a file.
 set.cmdheight = 0                                 -- Number of screen lines to use for the command-line.
 
-vim.opt.undodir = vim.fn.expand('~/.vim-undo')
+local undo_dir = vim.fn.expand('~/.vim-undo')
+vim.fn.mkdir(undo_dir, 'p')
+set.undodir = undo_dir
 vim.opt.formatoptions:append("j")
-vim.api.nvim_set_option("clipboard","unnamed")

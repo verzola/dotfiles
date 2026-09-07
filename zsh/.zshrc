@@ -1,25 +1,19 @@
 # ZPLUG
-if [[ ! -d ~/.zplug ]];then
-  git clone https://github.com/zplug/zplug ~/.zplug
+if [[ -r "$HOME/.zplug/init.zsh" ]]; then
+  source "$HOME/.zplug/init.zsh"
+
+  zplug "rupa/z", use:z.sh
+  zplug "zsh-users/zsh-completions"
+  zplug "zsh-users/zsh-autosuggestions"
+  zplug "zsh-users/zsh-syntax-highlighting"
+  zplug "zsh-users/zsh-history-substring-search"
+  zplug "MichaelAquilina/zsh-you-should-use"
 fi
-
-source $HOME/.zplug/init.zsh
-
-zplug "rupa/z", use:z.sh
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
-zplug "MichaelAquilina/zsh-you-should-use"
 
 # Env vars
 export EDITOR='nvim'
-export TERM="xterm-256color"
-export PATH=$PATH:$HOME/.config/composer/vendor/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
+export TERM="${TERM:-xterm-256color}"
+export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/bin:$HOME/go/bin:$PATH"
 
 # History related
 HISTFILE=~/.zsh_history
@@ -33,14 +27,14 @@ setopt extended_glob
 [ -f ~/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # ZPLUG
-if ! zplug check --verbose; then
+if [[ -r "$HOME/.zplug/init.zsh" ]] && ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
         echo; zplug install
     fi
 fi
 
-zplug load #--verbose
+[[ -r "$HOME/.zplug/init.zsh" ]] && zplug load
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -48,12 +42,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Source other files
-[ -f $HOME/.secrets ] && source $HOME/.secrets
-[ -f $HOME/.aliases.zsh ] && source $HOME/.aliases.zsh
-[ -f $HOME/.aliases.common ] && source $HOME/.aliases.common
+[[ -r "$HOME/.secrets" ]] && source "$HOME/.secrets"
+[[ -r "$HOME/.aliases.zsh" ]] && source "$HOME/.aliases.zsh"
+[[ -r "$HOME/.aliases.common" ]] && source "$HOME/.aliases.common"
 
-eval "$(starship init zsh)"
-
-
-# Added by Antigravity CLI installer
-export PATH="/home/verzola/.local/bin:$PATH"
+command -v starship >/dev/null && eval "$(starship init zsh)"

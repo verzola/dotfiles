@@ -1,5 +1,5 @@
-# fast docker-compose
-alias dc='docker-compose'
+# fast Docker Compose
+alias dc='docker compose'
 
 # edit hosts file with sudo
 alias hosts='sudo vim /etc/hosts'
@@ -9,7 +9,7 @@ alias vim='nvim'
 alias v='nvim'
 
 # open file explorer
-alias o='nemo .'
+alias o='nautilus .'
 
 # folder navigation
 alias ~='cd ~'
@@ -25,13 +25,10 @@ alias ........='cd ../../../../../..'
 alias dev='npm run dev'
 alias build='npm run build'
 alias install='npm install'
-alias test='npm test'
+alias npmtest='npm test'
 
 # own all files recursively
-alias fuckperms='sudo chown -R $USER:$USER . && sudo chmod -R 777 .'
-
-# minify image
-alias tinypng='tinypng -k	$TINYPNG_KEY'
+alias fuckperms='sudo chown -R "$USER":"$USER" . && sudo chmod -R u+rwX,go+rX .'
 
 # git aliases
 alias ga='git add'
@@ -61,12 +58,13 @@ alias gundo='git reset --soft HEAD^'
 
 # search string
 function search() {
-  grep -RinF $1 .
+  [[ -n "$1" ]] || { echo "usage: search <text>" >&2; return 2; }
+  grep -RinF -- "$1" .
 }
 
 # search conflicts
 function conflicts() {
-  grep -RinF "======" .
-  grep -RinF "<<<<<<" .
-  grep -RinF ">>>>>>" .
+  grep -RinF -- "======" .
+  grep -RinF -- "<<<<<<" .
+  grep -RinF -- ">>>>>>" .
 }

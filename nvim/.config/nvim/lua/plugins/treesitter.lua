@@ -1,32 +1,23 @@
-require("nvim-treesitter.configs").setup({
-	auto_install = true,
-	autotag = { enable = true },
-	highlight = { enable = true },
-	incremental_selection = { enable = true },
-	indent = { enable = true },
-	rainbow = { enable = true },
-  sync_install = true,
-	ensure_installed = {
-		-- "bash",
-		-- "css",
-		-- "scss",
-		-- "html",
-		-- "xml",
-		-- "javascript",
-		-- "jsdoc",
-		-- "json",
-		-- "lua",
-		-- "php",
-		-- "phpdoc",
-		-- "sql",
-		-- "yaml",
-		-- "git_config",
-		-- "git_rebase",
-		-- "gitattributes",
-		-- "gitcommit",
-		-- "gitignore",
-		-- "ssh_config",
-		-- "luadoc",
-		-- "dockerfile",
+require("nvim-treesitter").setup({
+	install_dir = vim.fn.stdpath("data") .. "/site",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"bash",
+		"css",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"json",
+		"lua",
+		"markdown",
+		"typescript",
+		"typescriptreact",
+		"vim",
+		"yaml",
 	},
+	callback = function()
+		pcall(vim.treesitter.start)
+	end,
 })

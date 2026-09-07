@@ -40,7 +40,7 @@
   # Push to the same branch on the remote
   push = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 
-  undo = reset --hard HEAD^
+  undo = reset --soft HEAD^
 [init]
 	defaultBranch = main
 [rerere]
