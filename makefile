@@ -1,6 +1,6 @@
 SHELL := /bin/sh
 
-PACKAGES := aliases bash btop git kitty nvim starship tmux xresources zsh
+PACKAGES := aliases bash btop git kitty nvim starship xresources zsh
 STOW := stow
 
 .PHONY: all check help delete setup-arch setup-ubuntu
@@ -16,14 +16,10 @@ help:
 		'make              Install or refresh all dotfile links' \
 		'make check        Verify required tools are available' \
 		'make delete       Remove links created by Stow' \
-		'make setup-arch   Install GNU Stow on Arch Linux' \
 		'make setup-ubuntu Install GNU Stow on Ubuntu/Debian'
 
 delete:
 	$(STOW) --verbose --target="$(HOME)" --delete $(PACKAGES)
 
-setup-arch:
-	sudo pacman -S --needed stow
-
-setup-ubuntu:
+setup:
 	sudo apt install stow

@@ -9,8 +9,7 @@ My dotfiles managed with GNU Stow.
 ## Commands
 - **`make`:** create or refresh symbolic links with Stow
 - **`make check`:** verify that Stow is installed
-- **`make setup-arch`:** install Stow on Arch Linux
-- **`make setup-ubuntu`:** install Stow on Ubuntu/Debian
+- **`make setup`:** install Stow on Ubuntu/Debian
 - **`make delete`:** remove symbolic links created with Stow
 
 ## Quick
