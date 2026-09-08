@@ -25,6 +25,7 @@ require("lazy").setup({
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-sensible" },
 	{ "tpope/vim-commentary" },
+	{ "mhinz/vim-startify", lazy = false, config = function() vim.g.startify_bookmarks = { { c = "~/.config/nvim/init.lua" }, { z = "~/.zshrc" } } end },
 	------------------------------------- Tab-like buffers
 	{
 		"akinsho/bufferline.nvim",
